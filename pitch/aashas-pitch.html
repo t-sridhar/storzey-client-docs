@@ -1,0 +1,530 @@
+<title>Made Around You</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&family=Archivo:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --wine:#6E1A20; --wine-deep:#481014;
+  --ivory:#F6F0E6; --paper:#FCF9F3;
+  --gold:#9A7538; --gold-bright:#D9B878;
+  --ink:#241A18; --mauve:#7A6A64; --mauve-lt:#D3C2BC;
+  --disp:"Prata",Georgia,"Times New Roman",serif;
+  --sans:"Archivo",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+
+.band{padding-block:clamp(52px,6.5vw,96px)}
+.wrap{max-width:1060px;margin:0 auto;padding-inline:clamp(20px,4vw,48px)}
+.dark{background:var(--wine);color:var(--ivory)}
+.darker{background:var(--wine-deep);color:var(--ivory)}
+
+h1,h2{font-family:var(--disp);font-weight:400;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.5rem,6.4vw,4.5rem);line-height:1.04;letter-spacing:-.005em}
+h2{font-size:clamp(1.7rem,3.3vw,2.5rem);line-height:1.14}
+h3{font-family:var(--sans);font-weight:600;font-size:1.08rem;line-height:1.38;margin:0;
+  letter-spacing:.005em;text-wrap:balance}
+h4{font-family:var(--sans);font-weight:600;font-size:.95rem;margin:0;letter-spacing:.02em}
+p{margin:0}
+.lede{font-size:clamp(1.06rem,1.7vw,1.24rem);line-height:1.58;max-width:60ch}
+.label{font-size:.67rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold)}
+.dark .label,.darker .label{color:var(--gold-bright)}
+.quiet{color:var(--mauve)}
+.dark .quiet,.darker .quiet{color:var(--mauve-lt)}
+hr.rule{height:1px;background:currentColor;opacity:.3;border:0;margin:0}
+
+/* masthead */
+.mast{background:var(--wine);color:var(--ivory);position:relative;overflow:hidden;isolation:isolate}
+.mast-img{position:absolute;inset:0;z-index:0;
+  background-image:url("a_assets/fashion.jpg");background-size:cover;
+  background-position:50% 34%;background-repeat:no-repeat;
+  transform:scaleX(-1)}
+.mast::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:
+  linear-gradient(100deg,rgba(58,11,15,.95) 0%,rgba(84,18,24,.86) 40%,rgba(110,26,32,.40) 100%)}
+.mast .wrap{position:relative;z-index:2}
+.lockup b{font-family:var(--disp);font-size:1.4rem;letter-spacing:.3em;font-weight:400;
+  line-height:1;display:block}
+.lockup span{display:block;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--gold-bright);margin-top:7px}
+.mast-grid{display:grid;gap:clamp(30px,5vw,60px);padding-block:clamp(44px,6vw,76px)}
+.statement{font-family:var(--disp);font-size:clamp(1.3rem,2.5vw,1.85rem);line-height:1.34;
+  max-width:25ch}
+.statement em{font-style:normal;color:var(--gold-bright)}
+.meta{display:flex;flex-wrap:wrap;gap:7px 26px;font-size:.79rem;letter-spacing:.05em}
+
+/* spec rows */
+.spec{display:grid;grid-template-columns:minmax(0,146px) minmax(0,1fr);
+  gap:clamp(16px,3vw,48px);align-items:start}
+.spec + .spec{margin-top:clamp(32px,4vw,54px);padding-top:clamp(32px,4vw,54px);
+  border-top:1px solid color-mix(in srgb,currentColor 18%,transparent)}
+.stack{display:flex;flex-direction:column;gap:17px}
+.sub{display:flex;flex-direction:column;gap:11px;margin-top:9px}
+
+/* 70/30 */
+.split{display:grid;grid-template-columns:7fr 3fr;border:1px solid var(--gold-bright);
+  border-radius:2px;overflow:hidden;margin-block:22px}
+.split>div{padding:19px 21px;display:flex;flex-direction:column;gap:6px}
+.split>div:first-child{background:rgba(217,184,120,.16)}
+.split>div+div{border-left:1px solid var(--gold-bright)}
+.split .pct{font-family:var(--disp);font-size:2.3rem;line-height:1}
+.split .nm{font-size:.83rem;line-height:1.4}
+
+/* deliverables */
+.deliv{list-style:none;margin:0;padding:0}
+.deliv li{display:flex;justify-content:space-between;align-items:baseline;gap:20px;
+  padding:12px 0;border-bottom:1px solid color-mix(in srgb,currentColor 16%,transparent)}
+.deliv li:first-child{border-top:1px solid color-mix(in srgb,currentColor 16%,transparent)}
+.deliv .n{font-family:var(--disp);font-size:1.4rem;line-height:1;
+  font-variant-numeric:tabular-nums;color:var(--wine);white-space:nowrap}
+.dark .deliv .n,.darker .deliv .n{color:var(--gold-bright)}
+
+.acts{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.acts li{display:grid;grid-template-columns:13px 1fr;gap:12px;font-size:.94rem;line-height:1.52}
+.acts li::before{content:"";width:5px;height:5px;margin-top:.56em;border-radius:50%;
+  background:var(--gold)}
+.dark .acts li::before,.darker .acts li::before{background:var(--gold-bright)}
+
+/* month arc */
+.arc{list-style:none;margin:0;padding:0}
+.arc li{display:grid;grid-template-columns:minmax(0,54px) minmax(0,1fr);gap:18px;padding:15px 0;
+  border-top:1px solid color-mix(in srgb,currentColor 18%,transparent)}
+.arc li:last-child{border-bottom:1px solid color-mix(in srgb,currentColor 18%,transparent)}
+.arc .mo{font-family:var(--disp);font-size:.94rem;color:var(--gold-bright)}
+.arc p{font-size:.89rem;margin-top:3px}
+
+/* storyboards */
+.boards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,265px),1fr));
+  gap:clamp(16px,2.5vw,26px)}
+.boards figure{margin:0;display:flex;flex-direction:column;gap:10px}
+.boards img{border:1px solid rgba(217,184,120,.5)}
+.boards figcaption{font-size:.8rem;line-height:1.45;color:var(--mauve-lt)}
+
+/* tables */
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tbl{width:100%;border-collapse:collapse;font-size:.89rem;min-width:420px}
+.tbl th,.tbl td{text-align:left;padding:11px 13px;vertical-align:top;
+  border-bottom:1px solid color-mix(in srgb,currentColor 16%,transparent)}
+.tbl thead th{font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;font-weight:700;
+  color:var(--wine);border-bottom:1px solid var(--gold);white-space:nowrap}
+.dark .tbl thead th,.darker .tbl thead th{color:var(--gold-bright);
+  border-bottom-color:var(--gold-bright)}
+.tbl td.num,.tbl th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tbl td.svc{font-weight:600;white-space:nowrap}
+.tbl tr.total td{font-weight:700;border-top:2px solid var(--gold);
+  background:color-mix(in srgb,var(--gold) 13%,transparent)}
+.tbl tr.sub td{color:var(--mauve)}
+.dark .tbl tr.sub td,.darker .tbl tr.sub td{color:var(--mauve-lt)}
+.tbl tfoot td{vertical-align:middle}
+.tbl tfoot .ftl{text-align:right;font-weight:600;white-space:nowrap}
+.calc{margin:0;max-width:370px;display:grid}
+.calc>div{display:flex;justify-content:space-between;align-items:baseline;gap:18px;
+  padding:8px 0;border-bottom:1px solid color-mix(in srgb,currentColor 16%,transparent)}
+.calc>div.eq{border-bottom:0;border-top:2px solid var(--gold);padding-top:10px}
+.calc dt,.calc dd{margin:0;font-size:.88rem}
+.calc dd{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+.calc>div.eq dt,.calc>div.eq dd{font-weight:700}
+.tbl .bu{font-size:.82rem;line-height:1.45;min-width:230px}
+
+.levels{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,205px),1fr));
+  gap:13px;margin-top:22px}
+.levels div{padding:19px;border:1px solid color-mix(in srgb,currentColor 22%,transparent);
+  border-radius:2px}
+.levels div.pick{border:2px solid var(--gold);
+  background:color-mix(in srgb,var(--gold) 12%,transparent)}
+.levels .amt{font-family:var(--disp);font-size:1.68rem;line-height:1.08;margin-top:8px;
+  font-variant-numeric:tabular-nums}
+.levels .cap{font-size:.8rem;margin-top:6px;line-height:1.45}
+
+.callout{padding:17px 19px;border-left:3px solid var(--gold);
+  background:color-mix(in srgb,var(--gold) 9%,transparent);font-size:.9rem;line-height:1.55}
+.dark .callout,.darker .callout{border-left-color:var(--gold-bright);
+  background:rgba(217,184,120,.12)}
+
+.close{display:grid;gap:22px}
+.sign{font-family:var(--disp);font-size:clamp(1.5rem,3vw,2.15rem);line-height:1.2;max-width:27ch}
+.foot{font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--mauve-lt)}
+
+@media (min-width:760px){.mast-grid{grid-template-columns:1.3fr 1fr;align-items:end}}
+@media (max-width:560px){
+  .spec{grid-template-columns:1fr;gap:11px}
+  .split{grid-template-columns:1fr}
+  .split>div+div{border-left:0;border-top:1px solid var(--gold-bright)}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@page{size:A4;margin:0}
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  html,body{background:var(--paper)}
+  .wrap{max-width:none;padding-inline:17mm}
+  .band{padding-block:15mm}
+  .mast .mast-grid{padding-block:26mm 22mm}
+  .mast,.hero{break-after:page}
+  .spec,.split,.diag,.calc,.levels,.deliv,.callout{break-inside:avoid}
+  .boards figure,.jars figure,.arc li,.acts li{break-inside:avoid}
+  h1,h2,h3,h4,.label{break-after:avoid}
+  .scroll{overflow:visible}
+  .tbl{min-width:0}
+  .tbl thead{display:table-header-group}
+  .tbl tr{break-inside:avoid}
+  a{color:inherit;text-decoration:none}
+}
+</style>
+
+<header class="mast">
+  <div class="mast-img" role="img" aria-label="Close-up of a red bridal lehenga with gold zardozi embroidery, sequins and tasselled trim."></div>
+  <div class="wrap mast-grid">
+    <div class="stack">
+      <p class="lockup"><b>AASHAS</b><span>Tradition Meets Today</span></p>
+      <h1>Made<br>Around You</h1>
+      <p class="meta quiet">
+        <span>Content &amp; Growth Proposal</span>
+        <span>Six-month engagement</span>
+        <span>Prepared 20 September 2026</span>
+      </p>
+    </div>
+    <div class="stack">
+      <p class="statement">&ldquo;Bring us your inspiration, leave with something <em>made around you.</em>&rdquo;</p>
+      <p class="quiet" style="font-size:.88rem;max-width:34ch">The one idea we will build the brand
+        on, for six months, across every platform.</p>
+    </div>
+  </div>
+</header>
+
+<section class="band">
+  <div class="wrap">
+    <div class="spec">
+      <p class="label">What we see</p>
+      <div class="stack">
+        <h2>You already have the advantage that is hardest to manufacture.</h2>
+        <p class="lede">Customers can bring an idea, sit with a designer, and have an outfit made
+          around them. That is a real advantage over both the large ethnic chains and the
+          Instagram-only labels.</p>
+        <p class="lede quiet">It is currently invisible to anyone who has not already walked in. Our
+          job over six months is to make it visible to the right fifteen kilometres of Hyderabad,
+          consistently, and to turn that attention into booked store appointments.</p>
+      </div>
+    </div>
+    <div class="spec">
+      <p class="label">The measure</p>
+      <div class="stack">
+        <h3>We ask to be judged on qualified store appointments, not followers.</h3>
+        <p>Revenue walks through your door. Follower count and view count can both rise while
+          footfall stays flat, so appointments are the number we report against first. We will also
+          report the Hyderabad share of your reach &mdash; three thousand views inside the city are
+          worth more to you than a hundred thousand spread across the country.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band dark">
+  <div class="wrap">
+    <div class="spec">
+      <p class="label">How it is made</p>
+      <div class="stack">
+        <h2>One half-day a month produces most of your content.</h2>
+        <p class="lede">We build a fixed filming setup in a corner of the boutique &mdash; your
+          collection visible behind &mdash; and run one capture session a month with you on camera.
+          Twenty to thirty finished pieces come out of a single sitting. It runs as an interview, not
+          a script: we ask, you answer, and you prepare nothing.</p>
+        <div class="split">
+          <div><span class="pct">70%</span><span class="nm"><strong>Capture session, in-store proof,
+            motion from stills.</strong> Low cost, repeatable, and the reason a weekly cadence
+            survives six months rather than three.</span></div>
+          <div><span class="pct">30%</span><span class="nm"><strong>Model and location shoots.</strong>
+            Sets the quality ceiling &mdash; and supplies the footage every other piece is cut
+            against.</span></div>
+        </div>
+        <p class="quiet" style="font-size:.9rem">The thirty per cent is not decoration. A talking
+          head cut against beautiful garment footage looks produced; the same talking head alone
+          looks like a webcam.</p>
+      </div>
+    </div>
+    <div class="spec">
+      <p class="label">Every month</p>
+      <div class="stack">
+        <ul class="deliv">
+          <li><span>Hero reels</span><span class="n">16</span></li>
+          <li><span>Motion assets animated from photoshoot stills</span><span class="n">8&ndash;10</span></li>
+          <li><span>Carousels and static posts</span><span class="n">12</span></li>
+          <li><span>Story frames</span><span class="n">120+</span></li>
+          <li><span>Blog articles, from month three</span><span class="n">2</span></li>
+          <li><span>Long-form YouTube cut, from month three</span><span class="n">1</span></li>
+          <li><span>Reels dubbed into Telugu and Hindi</span><span class="n">2</span></li>
+          <li><span>Performance report and planning meeting</span><span class="n">1</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="spec">
+      <p class="label">Weeks one &amp; two</p>
+      <div class="stack">
+        <h2>Foundations, before a single camera comes out.</h2>
+        <ul class="acts">
+          <li>Positioning session; agree the promise and the proof points</li>
+          <li>Build the brand kit: logo rules for video, palette, typefaces, reel intro and outro, caption style</li>
+          <li>Rebuild the Instagram profile: bio, highlights, grid logic, pinned posts</li>
+          <li>Claim and populate the Google Business Profile with photos and correct details</li>
+          <li>Set up WhatsApp Business with a catalogue and saved replies for price, appointment and shipping</li>
+          <li>Agree who at Aashas answers messages and books appointments, and how fast</li>
+          <li>Write roughly 60 Aashas-specific interview questions from our question bank</li>
+          <li>Build the fixed capture corner in the boutique and photograph the setup card</li>
+          <li>Record the baseline: followers, reach, profile visits, weekly walk-ins, average order value</li>
+        </ul>
+      </div>
+    </div>
+    <div class="spec">
+      <p class="label">From week three</p>
+      <div class="stack">
+        <h3>The engine runs.</h3>
+        <ul class="acts">
+          <li>One capture session a month: a half-day with the owner producing 20 to 30 short pieces</li>
+          <li>One produced shoot a month: craft, karigars, customisation, real customers</li>
+          <li>A model shoot every second month, batching all model-led content into one day</li>
+          <li>A narrative set piece each quarter, timed to the season</li>
+          <li>Four reels, two carousels and daily stories every week</li>
+          <li>Two collaborator posts a month with bridal makeup artists and wedding photographers</li>
+          <li>Two blog articles a month from month 3, written from the capture session transcripts</li>
+          <li>YouTube long-form from month 3; owner vlogs from month 5</li>
+          <li>Monthly report and planning meeting in the first week of every month</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band darker">
+  <div class="wrap">
+    <div class="spec">
+      <p class="label">The six months</p>
+      <div class="stack">
+        <h2>Each month adds one capability and keeps the last.</h2>
+        <ol class="arc">
+          <li><span class="mo">One</span><div><h4>Foundations</h4>
+            <p>Cadence established, brand system built, festive content live.</p></div></li>
+          <li><span class="mo">Two</span><div><h4>Reach</h4>
+            <p>Collaborations, opening iteration, first paid amplification behind proven content.</p></div></li>
+          <li><span class="mo">Three</span><div><h4>Authority</h4>
+            <p>Blogs and YouTube launch, local search, the owner series scaled.</p></div></li>
+          <li><span class="mo">Four</span><div><h4>Conversion</h4>
+            <p>Appointment funnel, WhatsApp push, lead generation aimed at bookings.</p></div></li>
+          <li><span class="mo">Five</span><div><h4>Proof</h4>
+            <p>Real-bride content, creator seeding, owner vlogs.</p></div></li>
+          <li><span class="mo">Six</span><div><h4>Compound</h4>
+            <p>Retention, results review, and the plan for months seven to twelve.</p></div></li>
+        </ol>
+      </div>
+    </div>
+    <div class="spec">
+      <p class="label">Already developed</p>
+      <div class="stack">
+        <h3>Eleven reel concepts are written and ready to shoot.</h3>
+        <p class="quiet" style="font-size:.91rem">Storyboards from the concept work completed to
+          date &mdash; reference boards, not photography from a shoot.</p>
+        <div class="boards">
+          <figure>
+            <img src="a_assets/journey.jpg" alt="Ten-panel storyboard following a bride from Instagram inspiration through store visit, design discussion, fabric selection, craftsmanship, stitching and fitting to the final look.">
+            <figcaption>From Inspiration to Final Look &mdash; the bridal journey, ten beats, forty
+              seconds.</figcaption>
+          </figure>
+          <figure>
+            <img src="a_assets/craft.jpg" alt="Ten-panel craftsmanship storyboard running from design sketch and fabric selection through cutting, stitching, embroidery, finishing and fitting to the final reveal.">
+            <figcaption>Craftsmanship &mdash; sketch to finished outfit, the sequence that proves the
+              position.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="spec">
+      <p class="label">The retainer</p>
+      <div class="stack">
+        <h2>&#8377;60,000 a month. Six months. &#8377;3,60,000 in fees.</h2>
+        <div class="scroll">
+          <table class="tbl">
+            <thead><tr><th>Service</th><th>What it means in practice</th></tr></thead>
+            <tbody>
+              <tr><td class="svc">Brand growth strategy</td><td>Positioning, content strategy, monthly growth priorities, platform plan</td></tr>
+              <tr><td class="svc">Shoot planning</td><td>Concepts, scripts, question sets, shot lists, call sheets, scheduling</td></tr>
+              <tr><td class="svc">Production supervision</td><td>We direct every shoot and manage the hired crew on your behalf</td></tr>
+              <tr><td class="svc">Organic content output</td><td>All editing, captions, thumbnails, scheduling and publishing</td></tr>
+              <tr><td class="svc">Output control</td><td>Quality review before anything publishes; brand consistency across every asset</td></tr>
+              <tr><td class="svc">Monthly performance report</td><td>One-page scorecard against baseline, what worked, what changes next month</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">
+          <strong>Not included, and billed separately:</strong> hired crew and equipment, models and
+          artists, hair and makeup, styling, locations, props and consumables &mdash; set out below at
+          cost, with a 12% coordination fee for booking, negotiating and managing them.<br><br>
+          <strong>Also not included:</strong> paid advertising spend, which stays on your own account
+          so you control it directly, and any website or development work.
+        </div>
+      </div>
+    </div>
+
+    <div class="spec">
+      <p class="label">Rate card</p>
+      <div class="stack">
+        <div class="scroll">
+          <table class="tbl">
+            <thead><tr><th>Item</th><th>Unit</th><th class="num">Estimate</th></tr></thead>
+            <tbody>
+              <tr><td>Cameraman / director of photography</td><td>Full day</td><td class="num">&#8377;8,000</td></tr>
+              <tr><td>Camera operator</td><td>Half day</td><td class="num">&#8377;4,000</td></tr>
+              <tr><td>Camera body and lenses</td><td>Full day</td><td class="num">&#8377;3,500</td></tr>
+              <tr><td>Lighting kit</td><td>Full day</td><td class="num">&#8377;3,000</td></tr>
+              <tr><td>Audio kit, lapel and recorder</td><td>Full day</td><td class="num">&#8377;1,000</td></tr>
+              <tr><td>Gimbal or slider</td><td>Full day</td><td class="num">&#8377;1,500</td></tr>
+              <tr><td>Camera assistant / light technician</td><td>Full day</td><td class="num">&#8377;2,000</td></tr>
+              <tr><td>Female model</td><td>Full day</td><td class="num">&#8377;12,000</td></tr>
+              <tr><td>Male model</td><td>Full day</td><td class="num">&#8377;10,000</td></tr>
+              <tr><td>Child or senior artist</td><td>Full day</td><td class="num">&#8377;7,000</td></tr>
+              <tr><td>Hair and makeup artist</td><td>Full day</td><td class="num">&#8377;7,000</td></tr>
+              <tr><td>Stylist</td><td>Full day</td><td class="num">&#8377;5,000</td></tr>
+              <tr><td>External location</td><td>Full day</td><td class="num">&#8377;12,000</td></tr>
+              <tr><td>Props and set dressing</td><td>Per shoot</td><td class="num">&#8377;3,000&ndash;5,000</td></tr>
+              <tr><td>Transport and logistics</td><td>Per day</td><td class="num">&#8377;1,500&ndash;3,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="quiet" style="font-size:.86rem">All production figures are conservative Hyderabad
+          market estimates as at September 2026, intended for budgeting. We bring you actual quotes
+          before booking anything, and you approve each shoot budget in advance.</p>
+      </div>
+    </div>
+
+    <div class="spec">
+      <p class="label">Shoot types</p>
+      <div class="stack">
+        <h3>What each shoot type costs.</h3>
+        <div class="scroll">
+          <table class="tbl">
+            <thead><tr><th>Shoot type</th><th>Build-up</th><th class="num">Total</th></tr></thead>
+            <tbody>
+              <tr><td class="svc">Capture session, half day</td><td class="bu">Operator 4,000 + gear 4,000 + transport 1,000</td><td class="num">&#8377;9,000</td></tr>
+              <tr><td class="svc">Craft and customisation day</td><td class="bu">Crew 10,000 + gear 9,000 + transport 2,000</td><td class="num">&#8377;21,000</td></tr>
+              <tr><td class="svc">Model day, batched</td><td class="bu">Crew 10,000 + gear 9,000 + 2 models 22,000 + hair and makeup 7,000 + stylist 5,000 + props 3,000 + transport 2,500</td><td class="num">&#8377;58,500</td></tr>
+              <tr><td class="svc">Narrative set piece, quarterly</td><td class="bu">Crew 10,000 + gear 9,000 + cast of five 35,000 + hair and makeup 10,000 + stylist 5,000 + location 12,000 + props 5,000 + transport 3,000</td><td class="num">&#8377;89,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="spec">
+      <p class="label">Six-month total</p>
+      <div class="stack">
+        <h3>Production schedule at the recommended level.</h3>
+        <div class="scroll">
+          <table class="tbl">
+            <thead><tr><th>Month</th><th>Shoots</th><th class="num">Production</th>
+              <th class="num">Fee</th><th class="num">Month total</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Capture + craft + model day</td><td class="num">&#8377;88,500</td><td class="num">&#8377;60,000</td><td class="num">&#8377;1,59,120</td></tr>
+              <tr><td>2</td><td>Capture + craft</td><td class="num">&#8377;30,000</td><td class="num">&#8377;60,000</td><td class="num">&#8377;93,600</td></tr>
+              <tr><td>3</td><td>Capture + craft + set piece</td><td class="num">&#8377;1,19,000</td><td class="num">&#8377;60,000</td><td class="num">&#8377;1,93,280</td></tr>
+              <tr><td>4</td><td>Capture + craft + model day</td><td class="num">&#8377;88,500</td><td class="num">&#8377;60,000</td><td class="num">&#8377;1,59,120</td></tr>
+              <tr><td>5</td><td>Capture + craft</td><td class="num">&#8377;30,000</td><td class="num">&#8377;60,000</td><td class="num">&#8377;93,600</td></tr>
+              <tr><td>6</td><td>Capture + craft + set piece</td><td class="num">&#8377;1,19,000</td><td class="num">&#8377;60,000</td><td class="num">&#8377;1,93,280</td></tr>
+            </tbody>
+            <tfoot>
+              <tr class="total"><td class="ftl" colspan="2">Six-month total</td>
+                <td class="num">&#8377;5,32,000</td><td class="num">&#8377;3,60,000</td>
+                <td class="num">&#8377;8,92,000</td></tr>
+            </tfoot>
+          </table>
+        </div>
+        <dl class="calc">
+          <div><dt>Subtotal production</dt><dd>&#8377;4,75,000</dd></div>
+          <div><dt>Coordination at 12%</dt><dd>&#8377;57,000</dd></div>
+          <div class="eq"><dt>Production total</dt><dd>&#8377;5,32,000</dd></div>
+        </dl>
+        <p class="quiet" style="font-size:.88rem">Average monthly commitment across the six months:
+          approximately &#8377;1,48,700.</p>
+
+        <div class="sub">
+          <h4>Three budget levels</h4>
+          <div class="levels">
+            <div><p class="label">Lean</p><p class="amt">&#8377;7,26,800</p>
+              <p class="cap">One model day and one set piece across six months. Production
+                &#8377;3,66,800.</p></div>
+            <div class="pick"><p class="label">Recommended</p><p class="amt">&#8377;8,92,000</p>
+              <p class="cap">Two model days and two set pieces. Production &#8377;5,32,000.</p></div>
+            <div><p class="label">Peak</p><p class="amt">&#8377;10,57,200</p>
+              <p class="cap">Three model days and three set pieces. Production
+                &#8377;6,97,200.</p></div>
+          </div>
+          <p class="quiet" style="font-size:.88rem">Our recommendation is the middle option. Lean
+            holds the cadence but gives the brand fewer premium moments, and the set pieces are what
+            make Aashas look like a label rather than a shop. Peak is worth considering only if you
+            want to push hard through the wedding season.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="spec">
+      <p class="label">Terms</p>
+      <div class="stack">
+        <div class="scroll">
+          <table class="tbl">
+            <thead><tr><th>Item</th><th>Terms</th></tr></thead>
+            <tbody>
+              <tr><td class="svc">Fee</td><td>&#8377;60,000 per month, payable in advance</td></tr>
+              <tr><td class="svc">Term</td><td>Six months, then 30 days&rsquo; notice</td></tr>
+              <tr><td class="svc">Production costs</td><td>At cost plus 12% coordination; advance collected before each shoot month</td></tr>
+              <tr><td class="svc">Revisions</td><td>Two rounds per asset, then billable</td></tr>
+              <tr><td class="svc">Approvals</td><td>48-hour approval window; the approved calendar publishes on schedule</td></tr>
+              <tr><td class="svc">Ownership</td><td>All content becomes yours on payment; we retain portfolio and case-study rights</td></tr>
+              <tr><td class="svc">Owner availability</td><td>One on-camera half-day per month, committed in advance</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="spec">
+      <p class="label">From you</p>
+      <div class="stack">
+        <h3>Six things, and the first two matter most.</h3>
+        <ul class="acts">
+          <li>One half-day a month with the owner on camera, calendared three months ahead. Seventy
+            per cent of the content depends on it.</li>
+          <li>A corner of the boutique we can dress and use repeatedly, ideally with the collection
+            visible behind.</li>
+          <li>A named person to answer messages and book appointments, with an agreed response time.</li>
+          <li>Confirmation of which outfits are in stock before each shoot, so we never drive demand
+            for something that has sold.</li>
+          <li>Store staff briefed to ask customers and brides for consent to film.</li>
+          <li>Your wedding season and muhurtham calendar, so bridal content publishes ahead of the
+            decision.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="band dark">
+  <div class="wrap close">
+    <hr class="rule">
+    <p class="label">Next steps</p>
+    <p class="sign">Confirm a level, and we begin foundations the same week.</p>
+    <ul class="acts" style="max-width:56ch">
+      <li>Confirm the budget level: Lean, Recommended or Peak</li>
+      <li>Sign the engagement and settle month one&rsquo;s fee and production advance</li>
+      <li>Book the positioning session and the first capture session</li>
+      <li>Give us access to the Instagram account and the Google Business listing</li>
+    </ul>
+    <hr class="rule">
+    <p class="foot">Six-month engagement &middot; Content ownership transfers on payment</p>
+  </div>
+</footer>

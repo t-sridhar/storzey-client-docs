@@ -1,0 +1,12 @@
+# Internal working documents — never publish
+*.docx
+~$*
+prompts/
+
+# PDFs are local deliverables, not served and not tracked.
+# Regenerate from the HTML with headless Chrome — see README.
+*.pdf
+
+# Local noise
+.DS_Store
+Thumbs.db
